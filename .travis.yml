@@ -12,7 +12,9 @@ before_install:
 - wget -qO- $URL | tar xJf -
 - ./sfdx/install
 - export PATH=./sfdx/$(pwd):$PATH
-- sfdx plugins:install salesforcedx@pre-release
+- sfdx update
+- sfdx --version
+- sfdx plugins --core
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key
   --username $USERNAME --setdefaultdevhubusername -a HubOrg
 script:
